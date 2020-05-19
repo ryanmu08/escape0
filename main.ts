@@ -43,6 +43,25 @@ d d d d d d d d d d d d d d d d
 d d d d d d d d d d d d d d d d 
 d d d d d d d d d d d d d d d d 
 `
+    //% blockIdentity=images._tile
+    export const tile5 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
 }
 function destroyAllEnemies () {
     for (let 值 of enemies) {
@@ -54,7 +73,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.changeScoreBy(1)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (sprite, location) {
-    if (level == 4) {
+    if (level == 3) {
         game.over(true)
     } else {
         destroyAllGem()
@@ -98,7 +117,7 @@ function setLevelMap (level: number) {
 . . . 2 . . 2 2 2 2 2 2 . . 2 . 
 . . . 2 . . 2 . . . . 2 . . . 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile4],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
     } else if (level == 1) {
@@ -130,7 +149,7 @@ function setLevelMap (level: number) {
 . . . . 2 2 2 2 2 2 2 2 2 . . . . 2 . . 
 . . . . 2 2 . . . . . . 2 2 2 . 2 2 . . 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
     } else if (level == 2) {
@@ -167,55 +186,55 @@ function setLevelMap (level: number) {
 2 2 . . . . . . . . . . . . . . . . . . . . 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2,myTiles.tile4],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2,myTiles.tile4,myTiles.tile5],
             TileScale.Sixteen
         ))
     } else {
         game.showLongText("第四关", DialogLayout.Bottom)
         enemyNumber = 15
-        gemNumber = 14
+        gemNumber = 12
         levelTime = 80
         tiles.setTilemap(tiles.createTilemap(
-            hex`240024001f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1414141f1f141414141414141414141f1f1f1f1f1f1f1f1f1f1f141414141f1f1f1f1f1f1414141f14141414141414141414141f1f1f1414141414141414141414141f1f1f1f14141414141f14141414141414141414141414141414141414141414141414141f1f1f1f141414141f1f14141414141414141f1f1f1f1f1f1f1f1f1f1f1f1f14141414141f1f1f1f14141f1f1f1414141f1f1f1f1f1f1f1f14141f141414141f14141f14141414141f1f1f1f14141414141414141f1414141414141414141f141414141414141f14141414141f1f1f1f14141414141414141f1414141414141414141f1414141f1f1f1f1f14141414141f1f141414141f1f1f1f1f1f1f1414141f1f1f1f1f1f1f14141f1f1414141414141414141f1f141414141f141f1414141414141414141414141f1414141f141414141414141414141f1f141414141f141f1414141414141414141414141f1414141f14141414141414141f1f1f1f141414141f141f141f141f1f1f1f14141f1414141414141f1414141f1f1f1f1f1f141f1f141414141f141f141f141418141f14141f1414141414141f141414141414141414141f1f141414141f1414141f1f1414141f14141f141f1f1f1f1f1f141414141414141414141f1f141414141f141414141f1f1f1f1f14141f141f1414141414141414141414141414141f1f141414141f14141414141414141414141f141f1414141414141f1f1f1f1f1f1f14141f1f141414141f1f1f1f141414141414141f1f141f14141f1f14141f14141414141f14141f1f14141f141414141f1f14141414141f1f14141f14141f1f14141f14141414141f14141f1f14141f1f1414141f1f141414141f1f1414141f1414141414141f1414141f1f1f14141f1f1414141f1f141f1f141414141f1f1414141f1f1414141414141f1414141f141414141f1f14141414141f1f141414141f1f141414141f1f1f1f1f1414141f1414141f141414141f1f141414141f1f141414141f1f1414141414141414141f1414141f1414141f141414141f1f14141f1f1f141414141f14141414141414141414141f1414141f1414141f1f1f1f1f1f1f14141f14141414141f14141414141414141f14141f141414141f1f1f1414141414141f1f14141f141414141f14141f1f1f1f1f14141f14141f141414141414141f14141414141f1f14141f1414141f1f14141f1414141f14141f14141f1414141414141f1f14141714141f1f14141f141414141414141f1414141f14141f14141f1f1f1f1f1f1f1f1414141414141f1f14141f141414141414141f1414141f14141f14141414141f14141414141414141f1f1f1f14141f1f1414141414141f1414141f14141414141414141f14141414141f1f1f1f141f1f1414141f1f1f1f1f1f1f1f14141f1f14141414141414141f141414141414141414141f1f141414141414141414141414141f14141414141414141414141414141414141414141f1f141414141414141414141f1f1f1f141414141f1f1f1f1414141f1f1f1f1f1414141f1f1f1f1f14141414141f1f1f1f141414141414141f1f1f1f1414141f141414141414141f1f1f1f1f1f1414141414141414141414141414141f1f1f1f1414141f141414141414141f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1414141f1f1f1f1414141f14141f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f`,
+            hex`24002400222222222222222222222222222222222222222222222222222222222222222222222222221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141422222214142222222222222222222222222222222222222222221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422141414222222222222222222142222222222222222141414221414141422221414141422141414221414141414141414141414141414141422141414221414141422221414141422141414221414141414141414141414141414141422141414221414141422221414141422141414221414222214222222222222222222141422141414221414141422221414141422141414221414221414141414141414141422141422141414221414141422221414141422141414221414221414141414141414141422141422141414221414141422221414141422141414221414221414222222222222141422141422141414141414141422221414141414141414221414221414221414141414141422141422141414141414141422221414141422141414221414221414221418141422141422141422141414221414141422221414141422141414221414221414221414141422141422141422141414221414141422221414141422141414221414221414221414141422141422141422141414221414141422221414141422141414221414221414222222222222141422141422141414221414141422221414141422141414141414221414141414141414141422141414141414221414141422221414141422141414221414221414141414141414141422141422141414221414141422221414141422141414221414222222222222222214222222141422141414221414141422221414141422141414221414141414141414141414141414141422141414221414141422221414141422141414221414141414141414141414141414141422141414221414141422221414141422141414222222222222221414222222222222222222141414221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422141414141414141414141414141414141414141414141414221414141422221414141422222222142222222222222222222222222214222222222222221414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141422221414141414141414141414141414141414141414141414141414141414141414141722222222222222222222222222222222222222222222222222222222222222222222222222`,
             img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-2 2 2 2 2 . . . 2 2 . . . . . . . . . . 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 
-2 2 2 2 2 . . . 2 . . . . . . . . . . . 2 2 2 . . . . . . . . . . . . 2 
-2 2 2 . . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
-2 2 2 . . . . 2 2 . . . . . . . . 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . . 2 
-2 2 2 . . 2 2 2 . . . 2 2 2 2 2 2 2 2 . . 2 . . . 2 2 . . 2 . . . . . 2 
-2 2 2 . . . . . . . . 2 . . . . . . . . . 2 . . . . . . . 2 . . . . . 2 
-2 2 2 . . . . . . . . 2 . . . . . . . . . 2 . . . 2 2 2 2 2 . . . . . 2 
-2 . . . . 2 2 2 2 2 2 2 . . . 2 2 2 2 2 2 2 . . 2 2 . . . . . . . . . 2 
-2 . . . . 2 . 2 . . . . . . . . . . . . 2 . . . 2 . . . . . . . . . . 2 
-2 . . . . 2 . 2 . . . . . . . . . . . . 2 . . . 2 . . . . . . . . 2 2 2 
-2 . . . . 2 . 2 . 2 . 2 2 2 2 . . 2 . . . . . . 2 . . . 2 2 2 2 2 2 . 2 
-2 . . . . 2 . 2 . 2 . . . . 2 . . 2 . . . . . . 2 . . . . . . . . . . 2 
-2 . . . . 2 . . . 2 2 . . . 2 . . 2 . 2 2 2 2 2 2 . . . . . . . . . . 2 
-2 . . . . 2 . . . . 2 2 2 2 2 . . 2 . 2 . . . . . . . . . . . . . . . 2 
-2 . . . . 2 . . . . . . . . . . . 2 . 2 . . . . . . 2 2 2 2 2 2 2 . . 2 
-2 . . . . 2 2 2 2 . . . . . . . 2 2 . 2 . . 2 2 . . 2 . . . . . 2 . . 2 
-2 . . 2 . . . . 2 2 . . . . . 2 2 . . 2 . . 2 2 . . 2 . . . . . 2 . . 2 
-2 . . 2 2 . . . 2 2 . . . . 2 2 . . . 2 . . . . . . 2 . . . 2 2 2 . . 2 
-2 . . . 2 2 . 2 2 . . . . 2 2 . . . 2 2 . . . . . . 2 . . . 2 . . . . 2 
-2 . . . . . 2 2 . . . . 2 2 . . . . 2 2 2 2 2 . . . 2 . . . 2 . . . . 2 
-2 . . . . 2 2 . . . . 2 2 . . . . . . . . . 2 . . . 2 . . . 2 . . . . 2 
-2 . . 2 2 2 . . . . 2 . . . . . . . . . . . 2 . . . 2 . . . 2 2 2 2 2 2 
-2 . . 2 . . . . . 2 . . . . . . . . 2 . . 2 . . . . 2 2 2 . . . . . . 2 
-2 . . 2 . . . . 2 . . 2 2 2 2 2 . . 2 . . 2 . . . . . . . 2 . . . . . 2 
-2 . . 2 . . . 2 2 . . 2 . . . 2 . . 2 . . 2 . . . . . . 2 2 . . . . . 2 
-2 . . 2 . . . . . . . 2 . . . 2 . . 2 . . 2 2 2 2 2 2 2 2 . . . . . . 2 
-2 . . 2 . . . . . . . 2 . . . 2 . . 2 . . . . . 2 . . . . . . . . 2 2 2 
-2 . . 2 2 . . . . . . 2 . . . 2 . . . . . . . . 2 . . . . . 2 2 2 2 . 2 
-2 . . . 2 2 2 2 2 2 2 2 . . 2 2 . . . . . . . . 2 . . . . . . . . . . 2 
-2 . . . . . . . . . . . . . 2 . . . . . . . . . . . . . . . . . . . . 2 
-2 . . . . . . . . . . 2 2 2 2 . . . . 2 2 2 2 . . . 2 2 2 2 2 . . . 2 2 
-2 2 2 . . . . . 2 2 2 2 . . . . . . . 2 2 2 2 . . . 2 . . . . . . . 2 2 
-2 2 2 2 . . . . . . . . . . . . . . . 2 2 2 2 . . . 2 . . . . . . . 2 2 
-2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . 2 2 2 2 . . . 2 . . 2 2 2 2 2 2 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . 2 2 2 . . 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 2 2 2 2 2 2 2 2 . 2 2 2 2 2 2 2 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . . . . . . . . . . . . . . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . . . . . . . . . . . . . . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 2 . 2 2 2 2 2 2 2 2 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . . . . . . . . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . . . . . . . . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . 2 2 2 2 2 2 . . 2 . . 2 . . . . . . . . 2 
+2 . . . . . . . . 2 . . 2 . . 2 . . . . . . . 2 . . 2 . . . . . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . 2 . . . . 2 . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . 2 . . . . 2 . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . 2 . . . . 2 . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . 2 2 2 2 2 2 . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . 2 . . . . . . . . . . 2 . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 . . . . . . . . . . 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . 2 2 2 2 2 2 2 2 . 2 2 2 . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . . . . . . . . . . . . . . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 . . . . . . . . . . . . . . . . 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . 2 2 2 2 2 2 2 . . 2 2 2 2 2 2 2 2 2 . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 . . . . . . . . . . . . . . . . . . . . . . . . 2 . . . . 2 
+2 . . . . 2 2 2 2 . 2 2 2 2 2 2 2 2 2 2 2 2 2 . 2 2 2 2 2 2 2 . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
+2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,myTiles.tile4,sprites.castle.tileDarkGrass3,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenOuterEast2,sprites.dungeon.greenOuterWest2,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLight0,sprites.dungeon.hazardLava1,sprites.dungeon.floorLight2,sprites.castle.tilePath5,sprites.builtin.forestTiles0,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.dungeon.purpleOuterSouth0,sprites.dungeon.floorDark0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.builtin.crowd0,sprites.builtin.crowd3,sprites.builtin.brick],
+            [myTiles.tile0,myTiles.tile4,sprites.castle.tileDarkGrass3,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenOuterEast2,sprites.dungeon.greenOuterWest2,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLight0,sprites.dungeon.hazardLava1,sprites.dungeon.floorLight2,sprites.castle.tilePath5,sprites.builtin.forestTiles0,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.dungeon.purpleOuterSouth0,sprites.dungeon.floorDark0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.builtin.crowd0,sprites.builtin.crowd3,sprites.builtin.brick,sprites.castle.tilePath8,myTiles.tile5,sprites.dungeon.collectibleInsignia,sprites.dungeon.greenOuterNorth1],
             TileScale.Sixteen
         ))
     }
