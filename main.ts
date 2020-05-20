@@ -62,7 +62,32 @@ d d d d d d d d d d d d d d d d
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+    //% blockIdentity=images._tile
+    export const tile6 = img`
+. . . . . . . . . . . . . 7 . . 
+. . . . 7 7 7 7 . . . . 7 7 . . 
+. . . . 7 7 7 7 . . . . 7 7 . . 
+. . . 7 7 7 7 7 . . . 7 7 7 7 . 
+. . . 7 7 7 7 7 . . . 7 7 7 7 . 
+. . . 7 7 7 7 7 . . . 7 7 7 7 7 
+. . 7 7 7 7 7 7 . . 7 7 . 7 7 . 
+. . 7 7 7 7 7 7 . . 7 7 7 7 7 . 
+. . 7 7 7 7 7 7 . 7 7 7 7 7 7 . 
+. . 7 7 7 7 7 7 . 7 7 7 7 7 7 . 
+. . 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
+. . 7 7 7 7 7 7 7 7 7 7 7 . 7 . 
+. . 7 7 7 7 7 7 7 7 7 7 7 7 7 . 
+. . 7 7 7 . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
 }
+scene.onOverlapTile(SpriteKind.Enemy, myTiles.tile4, function (sprite, location) {
+    resetSpriteSpeed(sprite)
+    while (sprite.vx == 0 && sprite.vy == 0) {
+        resetSpriteSpeed(sprite)
+    }
+})
 function destroyAllEnemies () {
     for (let 值 of enemies) {
         值.destroy()
@@ -82,6 +107,12 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (spr
         setLevelMap(level)
     }
 })
+scene.onOverlapTile(SpriteKind.Enemy, sprites.castle.tilePath1, function (sprite, location) {
+    resetSpriteSpeed(sprite)
+    while (sprite.vx == 0 && sprite.vy == 0) {
+        resetSpriteSpeed(sprite)
+    }
+})
 scene.onHitWall(SpriteKind.Enemy, function (sprite) {
     resetSpriteSpeed(sprite)
     while (sprite.vx == 0 && sprite.vy == 0) {
@@ -89,7 +120,9 @@ scene.onHitWall(SpriteKind.Enemy, function (sprite) {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.over()
+    info.changeLifeBy(-1)
+    tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
+    game.showLongText("掉血，再来一遍", DialogLayout.Bottom)
 })
 function setLevelMap (level: number) {
     if (level == 0) {
@@ -98,7 +131,7 @@ function setLevelMap (level: number) {
         gemNumber = 3
         levelTime = 12
         tiles.setTilemap(tiles.createTilemap(
-            hex`10001000020f0c0c0c0c0c0c0c0c0c0c0c0c0c0c020309090909090909090909080c0c0c020305050505050505050a0a070c0c0c020316160b0b0b0b0b0b030a070c0c0c020316160c0c0c020c0c030a070c0c0c0203090909080c0c0c0c030a070c0c0c02030a050a070c0c0c0c030a070c0c0c0203071603070c0c0c0c030a070c0c0c0203071603070c0c0c0c030a0a0c0c0c0203071603070c0c01090a0a0a080c0c02030a090a070c0c030a05050a070c0c0c0405050a070c0c03070c0c03070c0c0c0c0c0c030a09090a070c0c03070c0c0c0c0c0c030a050505060c0c03070c0c0c0c0c0c03070c0c0c0c0c0c03070c0c0c0c0c0c04060c0c0c0c0c0c030a100c`,
+            hex`10001000020f0c0c0c0c0c0c0c0c0c0c0c0c0c0c020109090909090909090909080c0c0c020305050505050505050a0a070c0c0c020316160b0b0b0b0b0b030a070c0c0c020316160c0c0c020c0c030a070c0c0c0203090909080c0c0c0c030a070c0c0c02030a050a070c0c0c0c030a070c0c0c0203071603070c0c0c0c030a070c0c0c020307160307020c0c0c030a0a0c0c0c0203071603070c0c01090a0a0a080c0c02030a090a070c0c030a05050a070c0c0c0405050a070c0c03070c0c03070c0c0c0c0c0c030a09090a070c0c03070c0c0c0c0c0c030a050505060c0c03070c0c0c0c0c0c03070c0c0c0c0c0c03070c0c0c0c0c0c04060c0c0c0c0c0c030a100c`,
             img`
 2 . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
 2 . . . . . . . . . . . . 2 . . 
@@ -117,7 +150,7 @@ function setLevelMap (level: number) {
 . . . 2 . . 2 2 2 2 2 2 . . 2 . 
 . . . 2 . . 2 . . . . 2 . . . 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile4,myTiles.tile5],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile4,myTiles.tile5,myTiles.tile6],
             TileScale.Sixteen
         ))
     } else if (level == 1) {
@@ -126,7 +159,7 @@ function setLevelMap (level: number) {
         gemNumber = 6
         levelTime = 25
         tiles.setTilemap(tiles.createTilemap(
-            hex`14001400171717161616171717171717171717171717171717171717171717170109090909090909081717171717171717171717030a0a0a0a0a0a0a071717171717171717171717030a0a171717170a071717171801091017171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a090909090a0717171717030a0717171717030a07161616160a0717171717030a0a090909090a0a07161616160a0717171717030a0a0a0a0a0a0a0a0717181717030a09090817030a0a0a0a050505050617171718030a0a0a07161616160a071717171717171717171616160a07161616160a07171717171718171717030a0a0a07161616160a07171717171717171717030a050506171616160a07171717171717171717030717171717171616160a0909090909090909090a07171717171716161605050505050505050a0a0a071717171717171616171717171717171704050a061717171717171616171717171717171717170f17171717`,
+            hex`14001400171717161616171717171717171717171717171717171717171717170109090909090909081717171717171717171717030a0a0a0a0a0a0a071717171717171717171717030a0a171717170a071717171801091017171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a090909090a0717171717030a0717171717030a07161616160a0717171717030a0a090909090a0a07161616160a0717171717030a0a0a0a0a0a0a0a0717181717030a09090817030a0a0a0a050505050617171718030a0a0a07161616160a071717171717171717171616160a07161616160a07171717171718171717030a0a0a07161616160a07171717171717171717030a050506171616160a07171717171717171717030717171717171616160a0909090909090909090a07171717171716161605050505050505050a0a0a0717171717171716161717171717171717040519061717171717171616171717171717171717170f17171717`,
             img`
 . . . . . . . 2 2 2 2 2 2 2 2 2 2 2 2 . 
 . . . . . . . 2 . . . . . . . . . 2 . . 
@@ -149,7 +182,7 @@ function setLevelMap (level: number) {
 . . . . 2 2 2 2 2 2 2 2 2 . . . . 2 . . 
 . . . . 2 2 . . . . . . 2 2 2 . 2 2 . . 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4,myTiles.tile5],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4,myTiles.tile5,myTiles.tile6],
             TileScale.Sixteen
         ))
     } else if (level == 2) {
@@ -186,7 +219,7 @@ function setLevelMap (level: number) {
 2 2 . . . . . . . . . . . . . . . . . . . . 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2,myTiles.tile4,myTiles.tile5],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2,myTiles.tile4,myTiles.tile5,myTiles.tile6],
             TileScale.Sixteen
         ))
     } else {
@@ -234,7 +267,7 @@ function setLevelMap (level: number) {
 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,myTiles.tile4,sprites.castle.tileDarkGrass3,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenOuterEast2,sprites.dungeon.greenOuterWest2,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLight0,sprites.dungeon.hazardLava1,sprites.dungeon.floorLight2,sprites.castle.tilePath5,sprites.builtin.forestTiles0,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.dungeon.purpleOuterSouth0,sprites.dungeon.floorDark0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.builtin.crowd0,sprites.builtin.crowd3,sprites.builtin.brick,sprites.castle.tilePath8,myTiles.tile5,sprites.dungeon.collectibleInsignia,sprites.dungeon.greenOuterNorth1],
+            [myTiles.tile0,myTiles.tile4,sprites.castle.tileDarkGrass3,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterNorth2,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterSouth2,sprites.dungeon.greenOuterEast2,sprites.dungeon.greenOuterWest2,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLight0,sprites.dungeon.hazardLava1,sprites.dungeon.floorLight2,sprites.castle.tilePath5,sprites.builtin.forestTiles0,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.dungeon.purpleOuterSouth0,sprites.dungeon.floorDark0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.builtin.crowd0,sprites.builtin.crowd3,sprites.builtin.brick,sprites.castle.tilePath8,myTiles.tile5,sprites.dungeon.collectibleInsignia,sprites.dungeon.greenOuterNorth1,myTiles.tile6],
             TileScale.Sixteen
         ))
     }
@@ -344,6 +377,7 @@ let level = 0
 let gems: Sprite[] = []
 let enemies: Sprite[] = []
 let mySprite: Sprite = null
+effects.confetti.startScreenEffect()
 mySprite = sprites.create(img`
 . . . . f f f f . . . . . 
 . . f f f f f f f f . . . 
@@ -364,6 +398,7 @@ e e f 6 6 6 6 6 6 f e e .
 `, SpriteKind.Player)
 enemies = sprites.allOfKind(SpriteKindLegacy.Enemy)
 gems = sprites.allOfKind(SpriteKindLegacy.Food)
+info.setLife(3)
 controller.moveSprite(mySprite)
 info.setScore(0)
 level = 0
